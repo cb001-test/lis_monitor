@@ -60,7 +60,7 @@ public class MaxwellConsumer {
                     for(String oldKey:oldData.keySet()){
                         for(String newKey:newData.keySet()){
                             if (oldKey.equals(newKey)) {
-                                String oldValue = newData.get(oldKey);
+                                String oldValue = oldData.get(oldKey);
                                 String newValue = newData.get(newKey);
                                 sb.append("字段" + newKey + "的值由" + oldValue + "变为" + newValue);
                                 sb.append(";");
