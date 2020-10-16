@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.maxwell.monitor.lisdata.dao.LogMapper">
+  <resultMap id="BaseResultMap" type="com.maxwell.monitor.lisdata.entity.Log">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="log_desc" jdbcType="VARCHAR" property="logDesc" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+  </resultMap>
+</mapper>
