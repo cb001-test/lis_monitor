@@ -6,6 +6,8 @@
       WARNING - @mbg.generated
     -->
     <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="table_name" jdbcType="VARCHAR" property="tableName" />
+    <result column="op_type" jdbcType="VARCHAR" property="opType" />
     <result column="log_desc" jdbcType="VARCHAR" property="logDesc" />
     <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
   </resultMap>

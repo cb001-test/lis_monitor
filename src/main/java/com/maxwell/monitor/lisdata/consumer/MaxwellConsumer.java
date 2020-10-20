@@ -71,9 +71,9 @@ public class MaxwellConsumer {
                 if (INSERT.equals(type)) {
                     sb.append("表" + table + "新增了一条记录,其中");
                     for(String key:newData.keySet()){
-                        String value = newData.get(key) != null ? String.valueOf(newData.get(key)) : "";
+                        String value = newData.get(key) != null ? String.valueOf(newData.get(key)) : "空";
                         if (!StringUtils.isEmpty(value)) {
-                            sb.append("字段" + key + "被赋值" + value);
+                            sb.append("字段" + key + "赋值为:{" + value + "}");
                             sb.append(";");
                         }
                     }
@@ -84,9 +84,9 @@ public class MaxwellConsumer {
                     for(String oldKey:oldData.keySet()){
                         for(String newKey:newData.keySet()){
                             if (oldKey.equals(newKey)) {
-                                String oldValue = oldData.get(oldKey);
-                                String newValue = newData.get(newKey);
-                                sb.append("字段" + newKey + "的值由" + oldValue + "变为" + newValue);
+                                String oldValue = oldData.get(oldKey) != null ? String.valueOf(oldData.get(oldKey)) : "空";
+                                String newValue = newData.get(newKey) != null ? String.valueOf(newData.get(newKey)) : "空";
+                                sb.append("字段" + newKey + ":{" + oldValue + "-->" + newValue + "}");
                                 sb.append(";");
                             }
                         }
@@ -96,6 +96,8 @@ public class MaxwellConsumer {
                     sb.append("表" + table + "删除了一条记录,其中");
                 }
                 Log log = new Log();
+                log.setTableName(table);
+                log.setOpType(type);
                 log.setLogDesc(sb.toString());
                 log.setCreateDate(new Date());
                 logMapper.insert(log);
